@@ -1,0 +1,1 @@
+g++ core/framework.cpp core/window.cpp  test.cpp -Iinclude -Llib -lSDL3 -o test

@@ -3,7 +3,7 @@
 
 void start()
 {
-    CreateWindow("hi");
+    CreateWindow("hello world");
 }
 
 void loop()
