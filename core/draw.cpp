@@ -22,6 +22,7 @@ void drawLine(Vec2 start, Vec2 end, color color)
 
 
 void drawCircle(Vec2 pos, int radius, color color) {
+    SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, 255);
     for (int w = -radius; w <= radius; w++)
     {
         for (int h = -radius; h <= radius; h++)
@@ -32,4 +33,10 @@ void drawCircle(Vec2 pos, int radius, color color) {
             }
         }
     }
+}
+
+void drawPixel(Vec2 pos, color color)
+{
+    SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, 255);
+    SDL_RenderPoint(renderer, pos.x, pos.y);
 }

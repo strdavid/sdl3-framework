@@ -1,1 +1,1 @@
-g++ core/framework.cpp core/window.cpp core/draw.cpp  test.cpp -Iinclude -Llib -lSDL3 -o test
+g++ core/framework.cpp core/mouse.cpp core/keyboard.cpp core/window.cpp core/draw.cpp  test.cpp -Iinclude -Llib -lSDL3 -o test

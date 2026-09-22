@@ -16,7 +16,27 @@ int main()
             {
                 run = false;
             }
+            if(event.type == SDL_EVENT_MOUSE_BUTTON_DOWN)
+            {
+                if(event.button.button == SDL_BUTTON_LEFT)
+                {
+                    Mouse.isLeftClicking = true;
+                } else if(event.button.button == SDL_BUTTON_RIGHT)
+                {
+                    Mouse.isRightClicking = true;
+                }  
+            } else if(event.type == SDL_EVENT_MOUSE_BUTTON_UP)
+            {
+                if(event.button.button == SDL_BUTTON_LEFT)
+                {
+                    Mouse.isLeftClicking = false;
+                } else if(event.button.button == SDL_BUTTON_RIGHT)
+                {
+                    Mouse.isRightClicking = false;
+                }  
+            }
         }
+        GetMousePos();
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         SDL_RenderClear(renderer);
 
