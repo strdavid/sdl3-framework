@@ -29,4 +29,6 @@ void loop()
     {
         drawCircle(Mouse.pos, 10, BLUE);
     }
+
+    drawSprite("silly_lil_drawing.png", {600, 600}, {200, 200});
 }

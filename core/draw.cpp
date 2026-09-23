@@ -40,3 +40,12 @@ void drawPixel(Vec2 pos, color color)
     SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, 255);
     SDL_RenderPoint(renderer, pos.x, pos.y);
 }
+
+
+void drawSprite(Sprite sprite, Vec2 pos, Vec2 size) {
+    SDL_Texture *texture = IMG_LoadTexture(renderer, sprite);
+    
+    SDL_FRect rect = {pos.x, pos.y, size.x, size.y};
+
+    SDL_RenderTexture(renderer, texture, nullptr, &rect);
+}
