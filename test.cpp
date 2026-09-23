@@ -1,11 +1,19 @@
 #include "core/framework.h"
 #include <iostream>
 
+
+Object test = {{50, 50}, {0, 25}, {25, 25}, "silly_lil_drawing.png"};
+Object ground = {{0, 350}, {0, 0}, {800, 50}, "silly_lil_drawing.png", true, 0.02};
+
 void start()
 {
+    AddCollider(test);
+    AddCollider(ground);
+
     CreateWindow("hello world");
     EnableCamera(DefaultCamera);
 }
+
 
 void loop()
 {
@@ -38,6 +46,12 @@ void loop()
         debug("collidin'");
     }
     
+    test.draw();
+    test.update();
+
+    
+    ground.draw();
+    ground.update();
 
     drawCircle({50, Mouse.totalScroll}, 10, RED);
 

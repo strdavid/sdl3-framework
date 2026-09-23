@@ -8,6 +8,7 @@
 #include "../extra/deltaTime.h"
 #include "../physics/collision.h"
 #include "../extra/debug.h"
+#include "../object/object.h"
 
 
 void start();

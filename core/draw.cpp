@@ -11,7 +11,6 @@ void drawRect(Vec2 pos, Vec2 size, color color, bool filled)
     } else {
         SDL_RenderRect(renderer, &rect);
     }
-    
 }
 
 void drawLine(Vec2 start, Vec2 end, color color)
@@ -41,9 +40,17 @@ void drawPixel(Vec2 pos, color color)
     SDL_RenderPoint(renderer, pos.x - UsedCamera.pos.x, pos.y - UsedCamera.pos.y);
 }
 
+std::unordered_map<Sprite, SDL_Texture *> loadedTextures;
 
 void drawSprite(Sprite sprite, Vec2 pos, Vec2 size) {
-    SDL_Texture *texture = IMG_LoadTexture(renderer, sprite);
+    SDL_Texture *texture;
+    if(loadedTextures.find(sprite) != loadedTextures.end())
+    {
+        texture = loadedTextures[sprite];
+    } else {
+        SDL_Texture *texture = IMG_LoadTexture(renderer, sprite);
+        loadedTextures[sprite] = texture;
+    }
     
     SDL_FRect rect = {pos.x - UsedCamera.pos.x, pos.y - UsedCamera.pos.y, size.x, size.y};
 
@@ -52,7 +59,15 @@ void drawSprite(Sprite sprite, Vec2 pos, Vec2 size) {
 
 
 void drawSpriteTiled(Sprite sprite, Vec2 pos, Vec2 size, float scale) {
-    SDL_Texture *texture = IMG_LoadTexture(renderer, sprite);
+    SDL_Texture *texture;
+    if(loadedTextures.find(sprite) != loadedTextures.end())
+    {
+        texture = loadedTextures[sprite];
+    } else {
+        SDL_Texture *texture = IMG_LoadTexture(renderer, sprite);
+        loadedTextures[sprite] = texture;
+    }
+
     
     SDL_FRect rect = {pos.x - UsedCamera.pos.x, pos.y - UsedCamera.pos.y, size.x, size.y};
 

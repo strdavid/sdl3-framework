@@ -2,6 +2,8 @@
 
 #include "SDL3/SDL.h"
 #include "SDL3_image/SDL_image.h"
+#include <vector>
+#include <unordered_map>
 #include "window.h"
 #include "misc.h"
 #include "color.h"
