@@ -49,3 +49,12 @@ void drawSprite(Sprite sprite, Vec2 pos, Vec2 size) {
 
     SDL_RenderTexture(renderer, texture, nullptr, &rect);
 }
+
+
+void drawSpriteTiled(Sprite sprite, Vec2 pos, Vec2 size, float scale) {
+    SDL_Texture *texture = IMG_LoadTexture(renderer, sprite);
+    
+    SDL_FRect rect = {pos.x, pos.y, size.x, size.y};
+
+    SDL_RenderTextureTiled(renderer, texture, nullptr, scale, &rect);
+}

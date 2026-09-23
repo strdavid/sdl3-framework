@@ -16,3 +16,5 @@ void drawCircle(Vec2 pos, int radius, color color);
 void drawPixel(Vec2 pos, color color);
 
 void drawSprite(Sprite sprite, Vec2 pos, Vec2 size);
+
+void drawSpriteTiled(Sprite sprite, Vec2 pos, Vec2 size, float scale=1.0f);

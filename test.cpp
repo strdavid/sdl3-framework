@@ -31,4 +31,5 @@ void loop()
     }
 
     drawSprite("silly_lil_drawing.png", {600, 600}, {200, 200});
+    drawSpriteTiled("silly_lil_drawing.png", {300, 600}, {200, 200}, 0.08);
 }
