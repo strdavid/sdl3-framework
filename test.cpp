@@ -1,4 +1,5 @@
 #include "core/framework.h"
+#include <iostream>
 
 void start()
 {
@@ -8,7 +9,7 @@ void start()
 
 void loop()
 {
-    UsedCamera.pos = Center({300, 300});
+    UsedCamera.pos = Center({200, 300});
 
     drawLine({25, 25}, {125, 125}, WHITE);
     drawRect({25, 25}, {25, 25}, RED);
@@ -32,6 +33,10 @@ void loop()
         drawCircle(Mouse.pos, 10, BLUE);
     }
 
+    if(isColliding({25, 25, 25, 25}, {Mouse.pos.x, Mouse.pos.y, 1, 1}))
+    {
+        std::cout << "hi" << std::endl;
+    }
     
 
     drawCircle({50, Mouse.totalScroll}, 10, RED);
