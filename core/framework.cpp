@@ -6,6 +6,8 @@ int main()
     bool run = true;
     SDL_Event event;
 
+    NOW = SDL_GetTicksNS();
+
     start();
 
     while(run)
@@ -40,6 +42,7 @@ int main()
                 Mouse.totalScroll -= Mouse.scroll;
             }
         }
+        calculateDeltaTime();
         GetMousePos();
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         SDL_RenderClear(renderer);

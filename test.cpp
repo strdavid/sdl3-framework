@@ -8,7 +8,7 @@ void start()
 
 void loop()
 {
-    UsedCamera.pos.x += 1;
+    UsedCamera.pos.x += 10 * deltaTime;
 
     drawLine({25, 25}, {125, 125}, WHITE);
     drawRect({25, 25}, {25, 25}, RED);

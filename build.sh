@@ -1,1 +1,1 @@
-g++ core/framework.cpp extra/camera.cpp core/mouse.cpp core/keyboard.cpp core/window.cpp core/draw.cpp  test.cpp -Iinclude -Llib -lSDL3 -lSDL3_image -o test
+g++ core/framework.cpp extra/deltaTime.cpp extra/camera.cpp core/mouse.cpp core/keyboard.cpp core/window.cpp core/draw.cpp  test.cpp -Iinclude -Llib -lSDL3 -lSDL3_image -o test
