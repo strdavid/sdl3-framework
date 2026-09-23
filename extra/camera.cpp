@@ -17,3 +17,8 @@ Vec2 ScreenToWorldSpace(Vec2 pos)
 {
     return {pos.x - UsedCamera.pos.x, pos.y - UsedCamera.pos.y};
 }
+
+Vec2 Center(Vec2 pos)
+{
+    return {pos.x - UsedCamera.size.x / 2, pos.y - UsedCamera.size.y / 2};
+}

@@ -17,5 +17,6 @@ void EnableCamera(Camera camera);
 
 Vec2 WorldToScreenSpace(Vec2 pos);
 
+Vec2 Center(Vec2 pos);
 
 Vec2 ScreenToWorldSpace(Vec2 pos);
