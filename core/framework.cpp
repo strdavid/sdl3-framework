@@ -42,6 +42,7 @@ int main()
                 Mouse.totalScroll -= Mouse.scroll;
             }
         }
+        keyboard = SDL_GetKeyboardState(nullptr);
         calculateDeltaTime();
         GetMousePos();
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
@@ -50,6 +51,12 @@ int main()
         loop();
 
         SDL_RenderPresent(renderer);
+        std::copy(
+            keyboard,
+            keyboard + SDL_SCANCODE_COUNT,
+            previousKeyboard
+        );
+
     }
 
     
