@@ -37,6 +37,27 @@ void Object::update()
         }
     }
 
+bool Object::isOnGround()
+    {
+        rect = {pos.x, pos.y, size.x, size.y};
+        float rectPosYStat = rect.y;
+
+        for(Object* other : objectsWithColliders)
+        {
+            if(other->pos.x == pos.x && other->pos.y == pos.y)
+            {
+                continue;
+            }
+
+            if(isColliding(rect, *other->getRect()))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
 void AddCollider(Object &obj)
 {
     objectsWithColliders.push_back(&obj);
