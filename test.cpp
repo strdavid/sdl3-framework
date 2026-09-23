@@ -35,7 +35,7 @@ void loop()
 
     if(isColliding({25, 25, 25, 25}, {Mouse.pos.x, Mouse.pos.y, 1, 1}))
     {
-        std::cout << "hi" << std::endl;
+        debug("collidin'");
     }
     
 

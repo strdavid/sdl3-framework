@@ -7,6 +7,7 @@
 #include "keyboard.h"
 #include "../extra/deltaTime.h"
 #include "../physics/collision.h"
+#include "../extra/debug.h"
 
 
 void start();
