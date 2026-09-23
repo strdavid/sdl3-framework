@@ -1,5 +1,6 @@
 #include "misc.h"
 #include "SDL3/SDL.h"
+#include "../extra/camera.h"
 
 
 struct mouse {

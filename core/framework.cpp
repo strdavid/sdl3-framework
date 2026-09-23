@@ -37,7 +37,7 @@ int main()
             } else if(event.type == SDL_EVENT_MOUSE_WHEEL )
             {
                 Mouse.scroll = event.wheel.y;
-                Mouse.totalScroll += Mouse.scroll;
+                Mouse.totalScroll -= Mouse.scroll;
             }
         }
         GetMousePos();

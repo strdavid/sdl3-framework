@@ -4,7 +4,7 @@
 void drawRect(Vec2 pos, Vec2 size, color color, bool filled)
 {
     SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, 255);
-    SDL_FRect rect = {pos.x, pos.y, size.x, size.y};
+    SDL_FRect rect = {pos.x - UsedCamera.pos.x, pos.y - UsedCamera.pos.y, size.x, size.y};
     if(filled)
     {
         SDL_RenderFillRect(renderer, &rect);
@@ -17,7 +17,7 @@ void drawRect(Vec2 pos, Vec2 size, color color, bool filled)
 void drawLine(Vec2 start, Vec2 end, color color)
 {
     SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, 255);
-    SDL_RenderLine(renderer, start.x, start.y, end.x, end.y);
+    SDL_RenderLine(renderer, start.x - UsedCamera.pos.x, start.y - UsedCamera.pos.y, end.x - UsedCamera.pos.x, end.y - UsedCamera.pos.y);
 }
 
 
@@ -29,7 +29,7 @@ void drawCircle(Vec2 pos, int radius, color color) {
         {
             if (w * w + h * h <= radius * radius)
             {
-                SDL_RenderPoint(renderer, pos.x + w, pos.y + h);
+                SDL_RenderPoint(renderer, pos.x - UsedCamera.pos.x + w, pos.y - UsedCamera.pos.y + h);
             }
         }
     }
@@ -38,14 +38,14 @@ void drawCircle(Vec2 pos, int radius, color color) {
 void drawPixel(Vec2 pos, color color)
 {
     SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, 255);
-    SDL_RenderPoint(renderer, pos.x, pos.y);
+    SDL_RenderPoint(renderer, pos.x - UsedCamera.pos.x, pos.y - UsedCamera.pos.y);
 }
 
 
 void drawSprite(Sprite sprite, Vec2 pos, Vec2 size) {
     SDL_Texture *texture = IMG_LoadTexture(renderer, sprite);
     
-    SDL_FRect rect = {pos.x, pos.y, size.x, size.y};
+    SDL_FRect rect = {pos.x - UsedCamera.pos.x, pos.y - UsedCamera.pos.y, size.x, size.y};
 
     SDL_RenderTexture(renderer, texture, nullptr, &rect);
 }
@@ -54,7 +54,7 @@ void drawSprite(Sprite sprite, Vec2 pos, Vec2 size) {
 void drawSpriteTiled(Sprite sprite, Vec2 pos, Vec2 size, float scale) {
     SDL_Texture *texture = IMG_LoadTexture(renderer, sprite);
     
-    SDL_FRect rect = {pos.x, pos.y, size.x, size.y};
+    SDL_FRect rect = {pos.x - UsedCamera.pos.x, pos.y - UsedCamera.pos.y, size.x, size.y};
 
     SDL_RenderTextureTiled(renderer, texture, nullptr, scale, &rect);
 }

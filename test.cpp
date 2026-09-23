@@ -1,13 +1,15 @@
 #include "core/framework.h"
-#include <iostream>
 
 void start()
 {
     CreateWindow("hello world");
+    EnableCamera(DefaultCamera);
 }
 
 void loop()
 {
+    UsedCamera.pos.x += 1;
+
     drawLine({25, 25}, {125, 125}, WHITE);
     drawRect({25, 25}, {25, 25}, RED);
     drawRect({125, 125}, {25, 25}, GREEN, false);
@@ -29,6 +31,8 @@ void loop()
     {
         drawCircle(Mouse.pos, 10, BLUE);
     }
+
+    
 
     drawCircle({50, Mouse.totalScroll}, 10, RED);
 

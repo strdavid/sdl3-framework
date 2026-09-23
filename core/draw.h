@@ -6,6 +6,7 @@
 #include "misc.h"
 #include "color.h"
 #include "sprite.h"
+#include "../extra/camera.h"
 
 void drawRect(Vec2 pos, Vec2 size, color color, bool filled=true);
 
