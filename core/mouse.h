@@ -6,6 +6,9 @@ struct mouse {
     Vec2 pos;
     bool isLeftClicking;
     bool isRightClicking;
+    bool isScrolling;
+    float scroll;
+    float totalScroll;
 };
 
 extern mouse Mouse;

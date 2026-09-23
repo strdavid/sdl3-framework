@@ -1,6 +1,6 @@
 #include "mouse.h"
 
-mouse Mouse = {{0, 0}, 0, 0};
+mouse Mouse = {{0, 0}, 0, 0, false, 0.0f, 0.0f};
 
 void GetMousePos()
 {
