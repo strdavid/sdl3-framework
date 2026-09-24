@@ -12,7 +12,7 @@ void Object::draw()
     {
         if(!tiled)
         {
-            drawSprite(sprite, pos, size, (isPixelArt ? true : false));
+            drawSprite(sprite, pos, size, (isPixelArt ? true : false), flip);
         } else {
             drawSpriteTiled(sprite, pos, size, scale, (isPixelArt ? true : false));
         }
@@ -57,6 +57,11 @@ bool Object::isOnGround()
 
         return false;
     }
+
+void Object::flipSprite(int direction)
+{
+    flip = direction;
+}
 
 void AddCollider(Object &obj)
 {

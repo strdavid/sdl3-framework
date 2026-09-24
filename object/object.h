@@ -24,6 +24,7 @@ public:
     Vec2 velocity;
     bool tiled=false;
     float scale=1.0f;
+    int flip=0;
 
     Object(Vec2 pos, Vec2 size, Sprite sprite="", bool isPixelArt=false, bool tiled=false, float scale=1.0f)
         : pos(pos), size(size), sprite(sprite), isPixelArt(isPixelArt), tiled(tiled), scale(scale)
@@ -36,6 +37,8 @@ public:
     void draw();
 
     void update();
+
+    void flipSprite(int flip);
 
     bool isOnGround();
 };

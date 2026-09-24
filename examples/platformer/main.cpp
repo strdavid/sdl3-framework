@@ -65,9 +65,11 @@ void loop()
     if(isKeyDown("a"))
     {
         player.velocity.x = -speed;
+        player.flipSprite(LEFT);
     } else if(isKeyDown("d"))
     {
         player.velocity.x = speed;
+        player.flipSprite(RIGHT);
     } else {
         player.velocity.x = 0;
     }

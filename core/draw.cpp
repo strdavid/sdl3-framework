@@ -42,7 +42,7 @@ void drawPixel(Vec2 pos, color color)
 
 std::unordered_map<Sprite, SDL_Texture *> loadedTextures;
 
-void drawSprite(Sprite sprite, Vec2 pos, Vec2 size, bool nearest) {
+void drawSprite(Sprite sprite, Vec2 pos, Vec2 size, bool nearest, int flip) {
     SDL_Texture *texture;
     if(loadedTextures.find(sprite) != loadedTextures.end())
     {
@@ -58,7 +58,12 @@ void drawSprite(Sprite sprite, Vec2 pos, Vec2 size, bool nearest) {
     
     SDL_FRect rect = {pos.x - UsedCamera.pos.x, pos.y - UsedCamera.pos.y, size.x, size.y};
 
-    SDL_RenderTexture(renderer, texture, nullptr, &rect);
+    if(flip == LEFT)
+    {
+        SDL_RenderTexture(renderer, texture, nullptr, &rect);
+    } else if(flip == RIGHT){
+        SDL_RenderTextureRotated(renderer, texture, nullptr, &rect, 0.0, NULL, SDL_FLIP_HORIZONTAL);
+    }
 }
 
 
@@ -78,6 +83,6 @@ void drawSpriteTiled(Sprite sprite, Vec2 pos, Vec2 size, float scale, bool neare
 
     
     SDL_FRect rect = {pos.x - UsedCamera.pos.x, pos.y - UsedCamera.pos.y, size.x, size.y};
-
+    
     SDL_RenderTextureTiled(renderer, texture, nullptr, scale, &rect);
 }

@@ -1,5 +1,8 @@
 #pragma once
 
+#define LEFT 0
+#define RIGHT 1
+
 #include "SDL3/SDL.h"
 #include "SDL3_image/SDL_image.h"
 #include <vector>
@@ -18,6 +21,6 @@ void drawCircle(Vec2 pos, int radius, color color);
 
 void drawPixel(Vec2 pos, color color);
 
-void drawSprite(Sprite sprite, Vec2 pos, Vec2 size, bool nearest=false);
+void drawSprite(Sprite sprite, Vec2 pos, Vec2 size, bool nearest=false, int flip=LEFT);
 
 void drawSpriteTiled(Sprite sprite, Vec2 pos, Vec2 size, float scale=1.0f, bool nearest=false);
