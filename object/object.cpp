@@ -39,7 +39,9 @@ void Object::update()
 
 bool Object::isOnGround()
     {
-        rect = {pos.x, pos.y, size.x, size.y};
+        float groundCheckSizeX = size.x - 5;
+        float groundCheckSizeY = size.y - 5;
+        rect = {pos.x+2.5f, pos.y + 5.0f, groundCheckSizeX, groundCheckSizeY};
         float rectPosYStat = rect.y;
 
         for(Object* other : objectsWithColliders)

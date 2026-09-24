@@ -2,36 +2,36 @@
 
 Object player = {
     {400, 400}, // position
-    {35, 35}, // size
+    {48, 48}, // size
     "examples/platformer/character.png", //sprite path
     true // is pixel art (should scale mode be set to nearest)
 };
 
 Object ground1 = {
     {0, 750},
-    {800, 50},
+    {800, 18*2},
     "examples/platformer/ground.png",
     true,
     true,
-    3.0f
+    2.0f
 };
 
 Object ground2 = {
     {900, 750},
-    {800, 50},
+    {800, 35},
     "examples/platformer/ground.png",
     true,
     true,
-    3.0f
+    2.0f
 };
 
 Object ground3 = {
     {-900, 750},
-    {800, 50},
+    {800, 35},
     "examples/platformer/ground.png",
     true,
     true,
-    3.0f
+    2.0f
 };
 
 float speed = 255;
