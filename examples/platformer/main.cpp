@@ -74,7 +74,7 @@ void loop()
         player.velocity.x = 0;
     }
 
-    if(isKeyPressed("space") && player.isOnGround())
+    if(wasKeyPressed("space", 10) && player.isOnGround())
     {
         player.velocity.y -= jumpStrength;
     }

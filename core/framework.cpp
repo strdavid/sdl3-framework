@@ -43,6 +43,17 @@ int main()
             }
         }
         keyboard = SDL_GetKeyboardState(nullptr);
+
+        for(int i = 0; i < SDL_SCANCODE_COUNT; i++)
+        {
+            if(keyboard[i] && !previousKeyboard[i])
+            {
+                timeSinceLastKeypressKeyboard[i] = 0;
+            } else {
+                timeSinceLastKeypressKeyboard[i] += (int)(deltaTime*1000);
+            }
+        }
+
         calculateDeltaTime();
         GetMousePos();
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
