@@ -5,6 +5,9 @@
 #include "../extra/deltaTime.h"
 #include "../object/object.h"
 #include <vector>
+#include <unordered_map>
+
+extern std::unordered_map<const char*, int> animationNames;
 
 struct Spritesheet {
     std::vector<Sprite> sprites;

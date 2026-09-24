@@ -35,12 +35,12 @@ Object ground3 = {
 };
 
 Spritesheet playerWalkSpritesheet = {
-    {"examples/platformer/character.png", 
-    "examples/platformer/character2.png"},
+    {"examples/platformer/character2.png", 
+    "examples/platformer/character.png"},
     100
 };
 
-Spritesheet playerFallSpritesheet = {
+Spritesheet playerJumpSpritesheet = {
     {"examples/platformer/character.png"},
     100
 };
@@ -64,7 +64,7 @@ void start()
     EnableCamera(DefaultCamera);
 
     animateObjectWithSpritesheet(player, playerWalkSpritesheet, "player_walk");
-    animateObjectWithSpritesheet(player, playerFallSpritesheet, "player_fall");
+    animateObjectWithSpritesheet(player, playerJumpSpritesheet, "player_jump");
     animateObjectWithSpritesheet(player, playerIdleSpritesheet, "player_idle");
 }
 
@@ -79,19 +79,16 @@ void loop()
         player.velocity.x = -speed;
         player.flipSprite(LEFT);
 
-        pauseSpritesheetAnimation("player_idle");
-        playSpritesheetAnimation("player_walk");
+        AnimationManager.playAnimation("player_walk");
     } else if(isKeyDown("d"))
     {
         player.velocity.x = speed;
         player.flipSprite(RIGHT);
 
-        pauseSpritesheetAnimation("player_idle");
-        playSpritesheetAnimation("player_walk");
+        AnimationManager.playAnimation("player_walk");
     } else {
         player.velocity.x = 0;
-        pauseSpritesheetAnimation("player_walk");
-        playSpritesheetAnimation("player_idle");
+        AnimationManager.playAnimation("player_idle");
     }
 
     // Jump
@@ -113,13 +110,11 @@ void loop()
     }
 
     // Fall animation
-    if(player.velocity.y > 0)
+    if(player.velocity.y != 0)
     {
-        pauseSpritesheetAnimation("player_idle");
-        pauseSpritesheetAnimation("player_walk");
-        playSpritesheetAnimation("player_fall");
+        AnimationManager.playAnimation("player_jump");
     } else {
-        pauseSpritesheetAnimation("player_fall");
+        pauseSpritesheetAnimation("player_jump");
     }
 
     // Draw player

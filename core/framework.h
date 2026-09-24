@@ -10,6 +10,7 @@
 #include "../extra/debug.h"
 #include "../object/object.h"
 #include "../animation/spritesheet.h"
+#include "../animation/animationManager.h"
 #include <algorithm>
 
 

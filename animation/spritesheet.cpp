@@ -1,8 +1,6 @@
 #include "spritesheet.h"
-#include <unordered_map>
 
 std::unordered_map<const char*, int> animationNames;
-
 std::vector<SpritesheetAnimation> SpritesheetAnimations;
 
 void animateObjectWithSpritesheet(Object &object, Spritesheet spritesheet, const char* name)
