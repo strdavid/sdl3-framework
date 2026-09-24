@@ -42,13 +42,17 @@ void drawPixel(Vec2 pos, color color)
 
 std::unordered_map<Sprite, SDL_Texture *> loadedTextures;
 
-void drawSprite(Sprite sprite, Vec2 pos, Vec2 size) {
+void drawSprite(Sprite sprite, Vec2 pos, Vec2 size, bool nearest) {
     SDL_Texture *texture;
     if(loadedTextures.find(sprite) != loadedTextures.end())
     {
         texture = loadedTextures[sprite];
     } else {
         SDL_Texture *texture = IMG_LoadTexture(renderer, sprite);
+        if(nearest)
+        {   
+            SDL_SetTextureScaleMode(texture, SDL_SCALEMODE_NEAREST);
+        }
         loadedTextures[sprite] = texture;
     }
     
@@ -58,13 +62,17 @@ void drawSprite(Sprite sprite, Vec2 pos, Vec2 size) {
 }
 
 
-void drawSpriteTiled(Sprite sprite, Vec2 pos, Vec2 size, float scale) {
+void drawSpriteTiled(Sprite sprite, Vec2 pos, Vec2 size, float scale, bool nearest) {
     SDL_Texture *texture;
     if(loadedTextures.find(sprite) != loadedTextures.end())
     {
         texture = loadedTextures[sprite];
     } else {
         SDL_Texture *texture = IMG_LoadTexture(renderer, sprite);
+        if(nearest)
+        {   
+            SDL_SetTextureScaleMode(texture, SDL_SCALEMODE_NEAREST);
+        }
         loadedTextures[sprite] = texture;
     }
 

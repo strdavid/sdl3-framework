@@ -1,9 +1,39 @@
 #include "../core/framework.h"
 
-Object player = {{400, 400}, {0, 0}, {35, 35}, "examples/platformer/character.png"};
-Object ground1 = {{0, 750}, {0, 0}, {800, 50}, "examples/platformer/ground.png", true, 3};
-Object ground2 = {{900, 750}, {0, 0}, {800, 50}, "examples/platformer/ground.png", true, 3};
-Object ground3 = {{-900, 750}, {0, 0}, {800, 50}, "examples/platformer/ground.png", true, 3};
+Object player = {
+    {400, 400}, // position
+    {35, 35}, // size
+    "examples/platformer/character.png", //sprite path
+    true // is pixel art (should scale mode be set to nearest)
+};
+
+Object ground1 = {
+    {0, 750},
+    {800, 50},
+    "examples/platformer/ground.png",
+    true,
+    true,
+    3.0f
+};
+
+Object ground2 = {
+    {900, 750},
+    {800, 50},
+    "examples/platformer/ground.png",
+    true,
+    true,
+    3.0f
+};
+
+Object ground3 = {
+    {-900, 750},
+    {800, 50},
+    "examples/platformer/ground.png",
+    true,
+    true,
+    3.0f
+};
+
 float speed = 255;
 float jumpStrength = 400;
 

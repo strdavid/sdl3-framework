@@ -18,14 +18,15 @@ private:
     SDL_FRect rect;
 public:
     Vec2 pos;
-    Vec2 velocity;
     Vec2 size;
     Sprite sprite;
+    bool isPixelArt;
+    Vec2 velocity;
     bool tiled=false;
     float scale=1.0f;
 
-    Object(Vec2 pos, Vec2 velocity, Vec2 size, Sprite sprite, bool tiled=false, float scale=1.0f)
-        : pos(pos), velocity(velocity), size(size), sprite(sprite), tiled(tiled), scale(scale)
+    Object(Vec2 pos, Vec2 size, Sprite sprite="", bool isPixelArt=false, bool tiled=false, float scale=1.0f)
+        : pos(pos), size(size), sprite(sprite), isPixelArt(isPixelArt), tiled(tiled), scale(scale)
     {
         rect = {pos.x, pos.y, size.x, size.y};
     }

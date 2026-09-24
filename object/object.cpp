@@ -12,9 +12,9 @@ void Object::draw()
     {
         if(!tiled)
         {
-            drawSprite(sprite, pos, size);
+            drawSprite(sprite, pos, size, (isPixelArt ? true : false));
         } else {
-            drawSpriteTiled(sprite, pos, size, scale);
+            drawSpriteTiled(sprite, pos, size, scale, (isPixelArt ? true : false));
         }
     }
 

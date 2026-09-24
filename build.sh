@@ -4,3 +4,7 @@ g++ core/framework.cpp extra/deltaTime.cpp extra/camera.cpp \
     physics/collision.cpp "$1" \
     -Iinclude -Llib -lSDL3 -lSDL3_image \
     -o "$2"
+
+echo
+echo "Compilation finished. Press Enter to close..."
+read
