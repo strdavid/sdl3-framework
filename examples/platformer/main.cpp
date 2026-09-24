@@ -34,6 +34,12 @@ Object ground3 = {
     2.0f
 };
 
+Spritesheet playerSpritesheet = {
+    {"examples/platformer/character.png", 
+    "examples/platformer/character2.png"},
+    100
+};
+
 float speed = 255;
 float jumpStrength = 400;
 
@@ -46,6 +52,8 @@ void start()
 
     CreateWindow("Platformer Example");
     EnableCamera(DefaultCamera);
+
+    animateObjectWithSpritesheet(player, playerSpritesheet, "player_walk");
 }
 
 void loop()
@@ -66,12 +74,15 @@ void loop()
     {
         player.velocity.x = -speed;
         player.flipSprite(LEFT);
+        playSpritesheetAnimation("player_walk");
     } else if(isKeyDown("d"))
     {
         player.velocity.x = speed;
         player.flipSprite(RIGHT);
+        playSpritesheetAnimation("player_walk");
     } else {
         player.velocity.x = 0;
+        pauseSpritesheetAnimation("player_walk");
     }
 
     if(wasKeyPressed("space", 10) && player.isOnGround())

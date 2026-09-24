@@ -42,6 +42,8 @@ int main()
                 Mouse.totalScroll -= Mouse.scroll;
             }
         }
+        continueAnimations();
+
         keyboard = SDL_GetKeyboardState(nullptr);
 
         for(int i = 0; i < SDL_SCANCODE_COUNT; i++)

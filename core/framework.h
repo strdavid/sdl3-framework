@@ -9,6 +9,7 @@
 #include "../physics/collision.h"
 #include "../extra/debug.h"
 #include "../object/object.h"
+#include "../animation/spritesheet.h"
 #include <algorithm>
 
 

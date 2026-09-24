@@ -3,7 +3,6 @@
 
 extern double deltaTime;
 
-
 extern Uint64 NOW;
 extern Uint64 LAST;
 
