@@ -3,6 +3,7 @@
 int main()
 {
     SDL_Init(SDL_INIT_VIDEO);
+    TTF_Init();
     bool run = true;
     SDL_Event event;
 
@@ -63,7 +64,8 @@ int main()
         SDL_RenderClear(renderer);
 
         loop();
-
+        drawUI();
+        
         SDL_RenderPresent(renderer);
         std::copy(
             keyboard,

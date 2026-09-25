@@ -1,5 +1,7 @@
+#pragma once
+
 struct color {
-    int r, g, b;
+    unsigned char r, g, b;
 };
 
 #define RED {255, 0, 0}

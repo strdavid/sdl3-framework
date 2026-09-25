@@ -81,6 +81,9 @@ void start()
     animateObjectWithSpritesheet(player, playerIdleSpritesheet, "player_idle");
 
     runAfter(startAnimatingRects, 1000); // run startAnimatingRects in 1000ms (1s)
+
+
+    Text text = {{0, 15}, {800, 16}, "hello world!", WHITE, "ui/fonts/opensans.ttf"};
 }
 
 
