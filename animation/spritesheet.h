@@ -26,7 +26,7 @@ extern std::vector<SpritesheetAnimation> SpritesheetAnimations;
 
 void animateObjectWithSpritesheet(Object &object, Spritesheet spritesheet, const char* animationName);
 
-void continueAnimations();
+void continueSpritesheetAnimations();
 
 void playSpritesheetAnimation(const char* animationName);
 void pauseSpritesheetAnimation(const char* animationName);

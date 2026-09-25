@@ -10,7 +10,7 @@ void animateObjectWithSpritesheet(Object &object, Spritesheet spritesheet, const
     animationNames[name] = SpritesheetAnimations.size()-1;
 }
 
-void continueAnimations()
+void continueSpritesheetAnimations()
 {
     for(SpritesheetAnimation &animation : SpritesheetAnimations)
     {

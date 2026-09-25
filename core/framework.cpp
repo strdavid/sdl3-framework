@@ -42,6 +42,7 @@ int main()
                 Mouse.totalScroll -= Mouse.scroll;
             }
         }
+        continueSpritesheetAnimations();
         continueAnimations();
 
         keyboard = SDL_GetKeyboardState(nullptr);

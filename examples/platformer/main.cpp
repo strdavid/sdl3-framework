@@ -53,8 +53,16 @@ Spritesheet playerIdleSpritesheet = {
 float speed = 255;
 float jumpStrength = 400;
 
+Vec2 rectPos = {300, 300};
+Vec2 rectPos2 = {400, 300};
 void start()
 {
+    animateValue(&rectPos.x, 600, 5, Linear);
+    animateValue(&rectPos.y, 600, 5, Linear);
+
+    animateValue(&rectPos2.x, 700, 5, EaseInOut);
+    animateValue(&rectPos2.y, 600, 5, EaseInOut);
+
     AddCollider(player);
     AddCollider(ground1);
     AddCollider(ground2);
@@ -67,6 +75,7 @@ void start()
     animateObjectWithSpritesheet(player, playerJumpSpritesheet, "player_jump");
     animateObjectWithSpritesheet(player, playerIdleSpritesheet, "player_idle");
 }
+
 
 void loop()
 {
@@ -116,6 +125,10 @@ void loop()
     } else {
         pauseSpritesheetAnimation("player_jump");
     }
+
+    // Draw animated rect
+    drawRect(rectPos, {25, 25}, RED);
+    drawRect(rectPos2, {25, 25}, BLUE);
 
     // Draw player
     player.draw();

@@ -11,6 +11,7 @@
 #include "../object/object.h"
 #include "../animation/spritesheet.h"
 #include "../animation/animationManager.h"
+#include "../animation/animation.h"
 #include <algorithm>
 
 
