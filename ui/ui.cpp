@@ -1,27 +1,27 @@
 #include "ui.h"
 #include "../extra/debug.h"
 
-std::unordered_map<const char*, TTF_Font*> loadedFonts;
-std::vector<Text> textElements;
+std::unordered_map<const char*, UIElement*> UIElements;
 
-
-void AddTextElementToUI(Text &text) {
-    textElements.push_back(text);
-}
-
-
+#include "text.h"
 void drawUI() {
-    for(Text &text: textElements)
+    for(Text *text: textElements)
     {
-        text.draw();
+        text->draw();
     }
 }
 
-// TEXT
-void Text::draw()
+UIElement* getUIElement(const char* name)
 {
-    if(visible)
+    if(UIElements.find(name) != UIElements.end())
     {
-        SDL_RenderTexture(renderer, textTexture, NULL, &rect);
+        return UIElements[name];
+    } else {
+        debug("this will probably crash but im not doing anything to prevent it lol");
     }
+}
+
+void addUIElement(const char* name, UIElement* element)
+{
+    UIElements[name] = element;
 }

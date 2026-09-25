@@ -82,13 +82,15 @@ void start()
 
     runAfter(startAnimatingRects, 1000); // run startAnimatingRects in 1000ms (1s)
 
-
-    Text text = {{0, 15}, {800, 16}, "hello world!", WHITE, "ui/fonts/opensans.ttf"};
+    static Text text = {"score", {0, 15}, {800, 32}, "0", WHITE, "examples/platformer/pixelArtFont.ttf", 32};
 }
 
+int nr = 0;
 
 void loop()
 {
+    nr++;
+    getUIElement("score")->changeText(std::to_string(nr).c_str());
     // Center camera on player
     UsedCamera.pos = Center(player.pos);
 

@@ -14,7 +14,9 @@
 #include "../animation/animation.h"
 #include "../animation/runAfter.h"
 #include "../ui/ui.h"
+#include "../ui/text.h"
 #include <algorithm>
+#include <string>
 
 
 void start();
