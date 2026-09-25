@@ -1,15 +1,15 @@
 #include "../core/framework.h"
 
 Object player = {
-    {400, 400}, // position
+    {400, 702}, // position
     {48, 48}, // size
     "examples/platformer/character.png", //sprite path
     true // is pixel art (should scale mode be set to nearest)
 };
 
 Object ground1 = {
-    {0, 750},
-    {800, 18*2},
+    {200, 750},
+    {400, 18*2},
     "examples/platformer/ground.png",
     true,
     true,
@@ -17,8 +17,8 @@ Object ground1 = {
 };
 
 Object ground2 = {
-    {900, 750},
-    {800, 35},
+    {350, 600},
+    {300, 18*2},
     "examples/platformer/ground.png",
     true,
     true,
@@ -26,8 +26,8 @@ Object ground2 = {
 };
 
 Object ground3 = {
-    {-900, 750},
-    {800, 35},
+    {150, 450},
+    {200, 18*2},
     "examples/platformer/ground.png",
     true,
     true,
@@ -52,19 +52,8 @@ Spritesheet playerIdleSpritesheet = {
 
 
 float speed = 255;
-float jumpStrength = 400;
+float jumpStrength = 450;
 
-Vec2 rectPos = {300, 300};
-Vec2 rectPos2 = {400, 300};
-
-void startAnimatingRects()
-{
-    animateValue(&rectPos.x, 600, 5, Linear);
-    animateValue(&rectPos.y, 600, 5, Linear);
-
-    animateValue(&rectPos2.x, 700, 5, EaseInOut);
-    animateValue(&rectPos2.y, 600, 5, EaseInOut);
-}
 
 void start()
 {
@@ -80,17 +69,14 @@ void start()
     animateObjectWithSpritesheet(player, playerJumpSpritesheet, "player_jump");
     animateObjectWithSpritesheet(player, playerIdleSpritesheet, "player_idle");
 
-    runAfter(startAnimatingRects, 1000); // run startAnimatingRects in 1000ms (1s)
-
     static Text text = {"score", {0, 15}, {800, 32}, "0", WHITE, "examples/platformer/pixelArtFont.ttf", 32};
 }
 
-int nr = 0;
 
 void loop()
 {
-    nr++;
-    getUIElement("score")->changeText(std::to_string(nr).c_str());
+    int score = (-player.pos.y+750-48)/10;
+    getUIElement("score")->changeText(std::to_string(score).c_str());
     // Center camera on player
     UsedCamera.pos = Center(player.pos);
 
@@ -138,9 +124,6 @@ void loop()
         pauseSpritesheetAnimation("player_jump");
     }
 
-    // Draw animated rect
-    drawRect(rectPos, {25, 25}, RED);
-    drawRect(rectPos2, {25, 25}, BLUE);
 
     // Draw player
     player.draw();

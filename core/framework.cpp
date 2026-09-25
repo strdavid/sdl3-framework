@@ -9,6 +9,11 @@ int main()
 
     NOW = SDL_GetTicksNS();
 
+    for(int i = 0; i < SDL_SCANCODE_COUNT; i++)
+    {
+        timeSinceLastKeypressKeyboard[i] = 999999;
+    }
+
     start();
 
     while(run)
@@ -65,7 +70,7 @@ int main()
 
         loop();
         drawUI();
-        
+
         SDL_RenderPresent(renderer);
         std::copy(
             keyboard,
