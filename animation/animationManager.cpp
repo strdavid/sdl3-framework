@@ -6,6 +6,12 @@ void animationManager::playAnimation(const char* animationName)
 {
     for(int i = 0; i < SpritesheetAnimations.size(); i++)
     {
+        if(SpritesheetAnimations[i].object != 
+        SpritesheetAnimations[animationNames[animationName]].object)
+        {
+            continue;
+        }
+        
         if(animationNames[animationName] == i)
         {
             SpritesheetAnimations[i].playing = true;
