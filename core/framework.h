@@ -12,6 +12,7 @@
 #include "../animation/spritesheet.h"
 #include "../animation/animationManager.h"
 #include "../animation/animation.h"
+#include "../animation/runAfter.h"
 #include <algorithm>
 
 

@@ -50,19 +50,24 @@ Spritesheet playerIdleSpritesheet = {
     100
 };
 
+
 float speed = 255;
 float jumpStrength = 400;
 
 Vec2 rectPos = {300, 300};
 Vec2 rectPos2 = {400, 300};
-void start()
+
+void startAnimatingRects()
 {
     animateValue(&rectPos.x, 600, 5, Linear);
     animateValue(&rectPos.y, 600, 5, Linear);
 
     animateValue(&rectPos2.x, 700, 5, EaseInOut);
     animateValue(&rectPos2.y, 600, 5, EaseInOut);
+}
 
+void start()
+{
     AddCollider(player);
     AddCollider(ground1);
     AddCollider(ground2);
@@ -74,6 +79,8 @@ void start()
     animateObjectWithSpritesheet(player, playerWalkSpritesheet, "player_walk");
     animateObjectWithSpritesheet(player, playerJumpSpritesheet, "player_jump");
     animateObjectWithSpritesheet(player, playerIdleSpritesheet, "player_idle");
+
+    runAfter(startAnimatingRects, 1000); // run startAnimatingRects in 1000ms (1s)
 }
 
 
