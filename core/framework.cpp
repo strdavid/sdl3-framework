@@ -59,7 +59,7 @@ int main()
             {
                 timeSinceLastKeypressKeyboard[i] = 0;
             } else {
-                timeSinceLastKeypressKeyboard[i] += (int)(deltaTime*1000);
+                timeSinceLastKeypressKeyboard[i] += (deltaTime*1000);
             }
         }
 

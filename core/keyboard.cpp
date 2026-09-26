@@ -2,7 +2,7 @@
 
 const bool* keyboard;  
 bool previousKeyboard[SDL_SCANCODE_COUNT] = {};
-int timeSinceLastKeypressKeyboard[SDL_SCANCODE_COUNT];
+float timeSinceLastKeypressKeyboard[SDL_SCANCODE_COUNT] = {};
 
 bool isKeyDown(const char* key)
 {
@@ -31,7 +31,7 @@ bool isKeyPressed(const char* key)
 }
 
 
-bool wasKeyPressed(const char* key, int ms)
+bool wasKeyPressed(const char* key, float ms)
 {
     SDL_Scancode scancode = SDL_GetScancodeFromName(key);
 
