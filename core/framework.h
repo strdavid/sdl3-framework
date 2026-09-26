@@ -16,6 +16,7 @@
 #include "../ui/ui.h"
 #include "../ui/text.h"
 #include "../ui/panel.h"
+#include "../sceneManager/sceneManager.h"
 #include <algorithm>
 #include <string>
 

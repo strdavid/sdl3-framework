@@ -3,7 +3,7 @@ g++ -std=c++17 core/framework.cpp extra/deltaTime.cpp extra/camera.cpp \
     object/object.cpp extra/debug.cpp core/draw.cpp \
     physics/collision.cpp animation/spritesheet.cpp \
     animation/animationManager.cpp animation/animation.cpp \
-    ui/ui.cpp ui/text.cpp "$1" \
+    ui/ui.cpp ui/text.cpp sceneManager/sceneManager.cpp "$1" \
     -Iinclude -Llib -lSDL3 -lSDL3_image -lSDL3_ttf \
     -o "$2"
 

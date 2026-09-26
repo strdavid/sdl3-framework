@@ -68,7 +68,13 @@ int main()
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         SDL_RenderClear(renderer);
 
-        loop();
+        if(loopFunction)
+        {
+            loopFunction();
+        } else {
+            loop();
+        }
+
         drawUI();
 
         SDL_RenderPresent(renderer);
