@@ -1,13 +1,6 @@
 #include "text.h"
 
 std::unordered_map<const char*, TTF_Font*> loadedFonts;
-std::vector<Text*> textElements;
-
-
-void AddTextElementToUI(Text *text) {
-    textElements.push_back(text);
-}
-
 
 void Text::draw()
 {
@@ -49,6 +42,7 @@ void Text::changeText(const char* newText)
 
     if(outlineTexture)
     {
+        SDL_DestroyTexture(outlineTexture);
         TTF_SetFontOutline(font, outlineWidth);
         SDL_Color outlineSDLColor = {outlineColor.r, outlineColor.g, outlineColor.b, 255};
         SDL_Surface* outline = TTF_RenderText_Blended(font, text, strlen(text), outlineSDLColor);

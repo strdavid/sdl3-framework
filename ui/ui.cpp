@@ -5,9 +5,9 @@ std::unordered_map<const char*, UIElement*> UIElements;
 
 #include "text.h"
 void drawUI() {
-    for(Text *text: textElements)
+    for(const auto& [name, element] : UIElements)
     {
-        text->draw();
+        element->draw();
     }
 }
 

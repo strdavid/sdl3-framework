@@ -11,10 +11,6 @@ extern std::unordered_map<const char*, TTF_Font*> loadedFonts;
 
 struct Text;
 
-void AddTextElementToUI(Text *text);
-
-extern std::vector<Text*> textElements;
-
 struct Text : UIElement {
     const char* name;
     Vec2 pos;
@@ -82,7 +78,6 @@ struct Text : UIElement {
             }
 
             addUIElement(name, this);
-            AddTextElementToUI(this);
         }
     
     void changeText(const char* newText) override;

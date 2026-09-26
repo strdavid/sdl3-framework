@@ -15,6 +15,7 @@
 #include "../animation/runAfter.h"
 #include "../ui/ui.h"
 #include "../ui/text.h"
+#include "../ui/panel.h"
 #include <algorithm>
 #include <string>
 
